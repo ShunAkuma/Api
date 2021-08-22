@@ -1,0 +1,14 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
+    <persistence-unit name="testing">
+        <class>testing.sora.Model.lead</class>
+        <class>testing.sora.Model.between_lead_friend</class>
+        <class>testing.sora.Model.friend</class>
+        <class>testing.sora.Model.post</class>
+        <properties>
+            <property name="persistenceUnitName" value="testtingBTW" />
+        </properties>
+    </persistence-unit>
+
+
+</persistence>
+
