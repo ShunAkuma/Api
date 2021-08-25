@@ -8,8 +8,6 @@ import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@Getter
-@Setter
 
 public class friend {
     @Id
@@ -29,4 +27,35 @@ public class friend {
         this.family = family;
         this.nickname = nickname;
     }
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFamily() {
+        return this.family;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
 }

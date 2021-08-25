@@ -1,15 +1,16 @@
 package testing.sora.Model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@FieldDefaults(level = AccessLevel.PRIVATE) // НЕ нужно писать модификатор доступа private
 public class lead {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,5 +30,53 @@ public class lead {
 
     public lead() {
     }
+
+
+    public Long getId() {
+        return this.id;
+    }
+
+
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFamily() {
+        return this.family;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
+    public String getLogin() {
+        return this.login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
 
 }
