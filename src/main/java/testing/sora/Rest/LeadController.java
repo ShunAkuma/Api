@@ -32,4 +32,5 @@ public class LeadController {
     public ResponseEntity deleteAcc(@RequestParam String nickname, String password) throws Exception {
         return ResponseEntity.ok(leadService.deleteAccount(nickname,password));
     }
+    
 }
