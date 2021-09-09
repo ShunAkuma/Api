@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import testing.sora.Exception.LoginExistException;
 import testing.sora.Exception.PasswordExistException;
+import testing.sora.Model.InputDto.LeadLoginInputModel;
 import testing.sora.Service.LoginService;
 
 @RestController
@@ -17,8 +18,8 @@ public class Login {
         this.userService = userService;
     }
     @PostMapping("/login")
-    public ResponseEntity login(@RequestParam String login, String password) throws PasswordExistException, LoginExistException {
-        userService.login(login,password);
+    public ResponseEntity login(LeadLoginInputModel model) throws PasswordExistException, LoginExistException {
+        userService.login(model);
         return ResponseEntity.ok("Авторизация выполнена успешно");
     }
 }
