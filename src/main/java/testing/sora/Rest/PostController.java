@@ -6,6 +6,9 @@ import testing.sora.Exception.UserDoesNotExistException;
 import testing.sora.Model.post;
 import testing.sora.Service.PostService;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @RestController
 @RequestMapping("/main")
 public class PostController {
@@ -19,7 +22,11 @@ public class PostController {
     }
 
     @GetMapping(value = "/post/{lead_id}")
-    public ResponseEntity GetAllPost(@PathVariable Long lead_id) throws UserDoesNotExistException {
+    public ResponseEntity GetAllPost(
+            @NotNull
+            @Size(min = 1)
+            @PathVariable Long lead_id
+    ) throws UserDoesNotExistException {
         return ResponseEntity.ok(postService.getAllPostFromLead(lead_id));
     }
 
@@ -29,7 +36,11 @@ public class PostController {
 //    }
 
     @DeleteMapping(value = "/delete/Post/{post_id}/delete")
-    public ResponseEntity deletePost(@PathVariable Long post_id){
+    public ResponseEntity deletePost(
+            @NotNull
+            @Size(min = 1)
+            @PathVariable Long post_id
+    ){
         postService.deletePost(post_id);
         return ResponseEntity.ok("Post was be deleted");
     }
