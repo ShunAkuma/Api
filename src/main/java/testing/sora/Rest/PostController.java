@@ -16,4 +16,9 @@ public class PostController {
     public ResponseEntity createPost(@RequestBody post post) throws Exception {
         return ResponseEntity.ok(postService.createPost(post));
     }
+
+    @GetMapping("/Post/getAll")
+    public ResponseEntity getAllPost(@RequestParam String AuthorNickname) throws Exception {
+        return ResponseEntity.ok(postService.getAllPostFromUser(AuthorNickname));
+    }
 }
